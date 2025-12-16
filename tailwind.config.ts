@@ -9,9 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        charcoal: "#0c1118",
-        mist: "#e7ecef",
-        accent: "#c5d86d",
+        charcoal: "rgb(var(--color-ink) / <alpha-value>)",
+        mist: "rgb(var(--color-mist) / <alpha-value>)",
+        canvas: "rgb(var(--color-canvas) / <alpha-value>)",
+        surface: "rgb(var(--color-surface) / <alpha-value>)",
+        navy: "rgb(var(--color-navy) / <alpha-value>)",
+        gold: "rgb(var(--color-gold) / <alpha-value>)",
       },
       fontFamily: {
         display: ["var(--font-playfair)", "serif"],

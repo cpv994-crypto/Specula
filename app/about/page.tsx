@@ -111,19 +111,19 @@ export default function AboutPage() {
   return (
     <div className="space-y-12">
       <section className="space-y-4">
-        <p className="text-sm uppercase tracking-[0.2em] text-black/60">About</p>
+        <p className="text-sm uppercase tracking-[0.2em] text-ink/70">About</p>
         <h1 className="font-display text-4xl text-charcoal">Marco de investigación socio-económica</h1>
-        <div className="prose prose-neutral max-w-none text-justify leading-7 text-black/80 prose-headings:font-display prose-headings:text-charcoal">
+        <div className="prose prose-neutral max-w-none text-justify leading-7 text-ink/80 prose-headings:font-display prose-headings:text-charcoal">
           {researchText.split("\n\n").map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
         </div>
       </section>
 
-      <section className="space-y-4 rounded-3xl border border-black/5 bg-white/70 p-8 shadow-sm">
-        <p className="text-sm uppercase tracking-[0.2em] text-black/60">Metodología de inversión</p>
+      <section className="space-y-4 rounded-3xl border border-gold/25 bg-surface/85 p-8 shadow-sm">
+        <p className="text-sm uppercase tracking-[0.2em] text-ink/70">Metodología de inversión</p>
         <h2 className="font-display text-3xl text-charcoal">Voluntad, instituciones y disciplina bajo incertidumbre radical</h2>
-        <div className="prose prose-neutral max-w-none text-justify leading-7 text-black/80 prose-headings:font-display prose-headings:text-charcoal">
+        <div className="prose prose-neutral max-w-none text-justify leading-7 text-ink/80 prose-headings:font-display prose-headings:text-charcoal">
           {investmentText.split("\n\n").map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
