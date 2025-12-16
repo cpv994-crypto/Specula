@@ -32,18 +32,18 @@ export default function ResourcesPage() {
   return (
     <div className="space-y-8">
       <div className="space-y-3">
-        <p className="text-sm uppercase tracking-[0.2em] text-black/60">Resources</p>
+        <p className="text-sm uppercase tracking-[0.2em] text-ink/70">Resources</p>
         <h1 className="font-display text-4xl text-charcoal">Recursos y referencias</h1>
-        <p className="max-w-2xl text-black/70">
+        <p className="max-w-2xl text-ink/80">
           Un inventario curado para sostener la observación paciente y la toma de decisiones estratégicas.
         </p>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-3">
         {resources.map((group) => (
-          <div key={group.title} className="space-y-3 rounded-2xl border border-black/5 bg-white/80 p-6 shadow-sm">
+          <div key={group.title} className="space-y-3 rounded-2xl border border-gold/25 bg-surface/85 p-6 shadow-sm">
             <h2 className="font-display text-xl text-charcoal">{group.title}</h2>
-            <ul className="space-y-2 text-sm text-black/70">
+            <ul className="space-y-2 text-sm text-ink/80">
               {group.items.map((item) => (
                 <li key={item} className="flex gap-2">
                   <span className="text-charcoal">•</span>
