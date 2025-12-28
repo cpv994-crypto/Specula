@@ -24,10 +24,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="antialiased">
-        <Header />
-        <main className="mx-auto max-w-6xl px-6 py-12 sm:py-16">{children}</main>
-        <Footer />
+      <body className="antialiased bg-base text-foreground">
+        <div className="relative min-h-screen">
+          <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(77,163,255,0.08),transparent_25%)]" aria-hidden />
+          <Header />
+          <main className="relative mx-auto max-w-6xl px-6 py-10 sm:py-12">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

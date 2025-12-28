@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Panel } from "@/components/ui/Panel";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const highlights = [
   {
@@ -20,63 +22,84 @@ const highlights = [
 
 export default function HomePage() {
   return (
-    <div className="space-y-12">
-      <section className="grid gap-8 rounded-3xl bg-surface/90 px-8 py-12 shadow-glow fade-border sm:grid-cols-2">
+    <div className="space-y-10">
+      <SectionHeader
+        label="Specula"
+        title="Terminal de observación socio-económica"
+        description="Interfaz disciplinada para navegar señales, construir narrativas y sostener decisiones estratégicas."
+      />
+
+      <Panel className="grid gap-8 border-lines/80 bg-overlay/70 p-8 md:grid-cols-2">
         <div className="space-y-4">
-          <p className="font-display text-sm uppercase tracking-[0.2em] text-ink/70">Specula</p>
-          <h1 className="font-display text-4xl leading-tight text-charcoal sm:text-5xl">
-            Observatorio y refugio de pensamiento estratégico
-          </h1>
-          <p className="text-lg text-ink/80">
-            Una web sobria y serena para navegar las tensiones entre tecnología, instituciones y acción humana.
+          <p className="text-sm uppercase tracking-[0.2em] text-muted">Estado del sistema</p>
+          <h2 className="font-display text-2xl text-foreground">Observación activa</h2>
+          <p className="text-sm leading-relaxed text-muted">
+            Specula prioriza la lectura de infraestructuras críticas, política industrial y flujos de poder. Un panel diseñado
+            para pensar con calma, registrar anomalías y mantener disciplina de ejecución.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             <Link
               href="/research"
-              className="rounded-full bg-navy px-5 py-2 text-sm font-medium text-canvas transition hover:-translate-y-0.5 hover:shadow-glow"
+              className="rounded-md border border-lines/80 bg-overlay/80 px-5 py-2 text-sm font-medium text-foreground transition hover:border-accent hover:text-accent"
             >
-              Ver investigación
+              Abrir módulo de investigación
             </Link>
             <Link
               href="/about"
-              className="rounded-full border border-gold/60 px-5 py-2 text-sm font-medium text-ink transition hover:border-gold hover:text-navy"
+              className="rounded-md border border-lines/70 px-5 py-2 text-sm font-medium text-muted transition hover:border-accent/60 hover:text-foreground"
             >
-              Conocer el marco
+              Marco y enfoque
             </Link>
           </div>
         </div>
-        <div className="relative overflow-hidden rounded-3xl border border-gold/25 bg-gradient-to-br from-surface via-surface to-mist/70 p-6 shadow-glow">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(181,146,96,0.18),transparent_38%)]" />
-          <div className="relative space-y-4 text-charcoal">
-            <p className="font-display text-2xl">“Una atalaya observa más lejos cuanto más silenciosa se mantiene.”</p>
-            <p className="text-ink/80">
-              Specula articula observación paciente, pensamiento crítico y disciplina de inversión para orientarse en la
-              incertidumbre radical.
-            </p>
-            <div className="flex gap-3 text-sm text-ink/70">
-              <span className="rounded-full bg-surface px-3 py-1 shadow-sm">Humanismo crítico</span>
-              <span className="rounded-full bg-surface px-3 py-1 shadow-sm">Praxeología</span>
-              <span className="rounded-full bg-surface px-3 py-1 shadow-sm">Tecnología</span>
+        <div className="space-y-4 rounded-lg border border-lines/70 bg-surface/60 p-6">
+          <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-muted">
+            <span>Indicadores</span>
+            <span className="flex items-center gap-2 text-accent">
+              <span className="h-2 w-2 rounded-full bg-accent" aria-hidden />
+              Línea segura
+            </span>
+          </div>
+          <div className="grid gap-3 text-sm text-muted sm:grid-cols-2">
+            <div className="rounded-md border border-lines/60 bg-overlay/60 p-4">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-muted">Humanismo crítico</p>
+              <p className="text-foreground">Observación institucional y tecnológica.</p>
+            </div>
+            <div className="rounded-md border border-lines/60 bg-overlay/60 p-4">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-muted">Praxeología</p>
+              <p className="text-foreground">Disciplina de acción bajo incertidumbre radical.</p>
+            </div>
+            <div className="rounded-md border border-lines/60 bg-overlay/60 p-4">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-muted">Tecnología</p>
+              <p className="text-foreground">Infraestructuras estratégicas y captura regulatoria.</p>
+            </div>
+            <div className="rounded-md border border-lines/60 bg-overlay/60 p-4">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-muted">Liquidez</p>
+              <p className="text-foreground">Sensores macro, riesgo y ventanas tácticas.</p>
             </div>
           </div>
         </div>
-      </section>
+      </Panel>
 
-      <section className="grid gap-6 sm:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-3">
         {highlights.map((item) => (
-          <Link
+          <Panel
             key={item.title}
-            href={item.href}
-            className="group relative flex flex-col justify-between rounded-2xl border border-gold/25 bg-surface/85 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-glow"
+            className="group flex h-full flex-col justify-between border-lines/80 bg-surface/70 p-6 transition hover:border-accent/70"
           >
             <div className="space-y-3">
-              <p className="font-display text-xl text-charcoal">{item.title}</p>
-              <p className="text-sm text-ink/80">{item.description}</p>
+              <p className="text-sm uppercase tracking-[0.16em] text-muted">Módulo</p>
+              <p className="font-display text-xl text-foreground">{item.title}</p>
+              <p className="text-sm leading-relaxed text-muted">{item.description}</p>
             </div>
-            <span className="mt-4 text-sm font-semibold text-navy group-hover:underline group-hover:decoration-gold">Explorar →</span>
-          </Link>
+            <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+              Explorar
+              <span aria-hidden>→</span>
+            </span>
+            <Link href={item.href} className="absolute inset-0" aria-label={`Abrir ${item.title}`} />
+          </Panel>
         ))}
-      </section>
+      </div>
     </div>
   );
 }

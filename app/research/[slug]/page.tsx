@@ -1,72 +1,64 @@
 import { notFound } from "next/navigation";
-import { researchPosts } from "@/content/researchPosts";
+import { Panel } from "@/components/ui/Panel";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { researchPosts } from "@/content/research";
 
-export default function ResearchDetail({ params }: { params: { slug: string } }) {
-  const post = researchPosts.find((entry) => entry.slug === params.slug);
+interface Props {
+  params: {
+    slug: string;
+  };
+}
+
+export default function ResearchPostPage({ params }: Props) {
+  const post = researchPosts.find((item) => item.slug === params.slug);
 
   if (!post) {
     notFound();
   }
 
   return (
-    <article className="space-y-8">
-      <header className="space-y-3">
-        <p className="text-sm uppercase tracking-[0.2em] text-ink/70">Research</p>
-        <h1 className="font-display text-4xl text-charcoal">{post?.title}</h1>
-        <div className="flex flex-wrap items-center gap-3 text-xs text-ink/70">
-          <span className="rounded-full bg-mist px-3 py-1 uppercase tracking-[0.2em] text-charcoal">
-            {new Date(post?.date || "").toLocaleDateString("es-ES", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+    <div className="space-y-8">
+      <SectionHeader label="Research" title={post?.title ?? ""} description={post?.summary} />
+
+      <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-muted">
+        <span className="rounded-sm border border-lines/60 bg-overlay/60 px-3 py-1">{post?.category}</span>
+        <span className="rounded-sm border border-lines/60 bg-overlay/60 px-3 py-1 text-muted">
+          {new Date(post?.date ?? "").toLocaleDateString("es-ES", { year: "numeric", month: "short", day: "numeric" })}
+        </span>
+        {post?.tags.map((tag) => (
+          <span key={tag} className="rounded-sm border border-lines/60 bg-overlay/60 px-3 py-1 text-muted">
+            {tag}
           </span>
-          {post?.tags.map((tag) => (
-            <span key={tag} className="rounded-full border border-gold/40 px-3 py-1 text-charcoal">
-              {tag}
-            </span>
-          ))}
-        </div>
-        <p className="max-w-2xl text-ink/80">{post?.summary}</p>
-      </header>
+        ))}
+      </div>
 
-      <section className="grid gap-6 rounded-3xl border border-gold/25 bg-surface/85 p-8 shadow-sm sm:grid-cols-3">
+      <Panel className="grid gap-6 border-lines/80 bg-surface/70 p-8 sm:grid-cols-3">
         <div className="space-y-2">
-          <p className="text-xs uppercase tracking-[0.2em] text-ink/70">Tesis</p>
-          <h2 className="font-display text-xl text-charcoal">Hipótesis central</h2>
-          <p className="text-sm text-ink/80">
-            Resume la tensión principal que se quiere observar. ¿Qué está cambiando? ¿Qué evidencias iniciales existen?
-          </p>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted">Tesis</p>
+          <h2 className="font-display text-xl text-foreground">Hipótesis central</h2>
+          <p className="text-sm leading-relaxed text-muted">{post?.thesis}</p>
         </div>
         <div className="space-y-2">
-          <p className="text-xs uppercase tracking-[0.2em] text-ink/70">Señales</p>
-          <h2 className="font-display text-xl text-charcoal">Indicadores y fuentes</h2>
-          <p className="text-sm text-ink/80">
-            Lista datos, informes, discursos o políticas que debes seguir. Prioriza las que vinculen tecnología, Estado y
-            liquidez.
-          </p>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted">Señales</p>
+          <h2 className="font-display text-xl text-foreground">Indicadores y fuentes</h2>
+          <p className="text-sm leading-relaxed text-muted">{post?.signals}</p>
         </div>
         <div className="space-y-2">
-          <p className="text-xs uppercase tracking-[0.2em] text-ink/70">Disciplina</p>
-          <h2 className="font-display text-xl text-charcoal">Próximos pasos</h2>
-          <p className="text-sm text-ink/80">
-            Define qué decisiones o modelos revisarás a la luz de las señales. Incluye criterios de entrada, salida o
-            cobertura.
-          </p>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted">Disciplina</p>
+          <h2 className="font-display text-xl text-foreground">Próximos pasos</h2>
+          <p className="text-sm leading-relaxed text-muted">{post?.discipline}</p>
         </div>
-      </section>
+      </Panel>
 
-      <section className="space-y-3 rounded-2xl border border-dashed border-gold/40 bg-surface/80 p-8">
-        <h3 className="font-display text-2xl text-charcoal">Plantilla rápida</h3>
-        <ul className="list-disc space-y-2 pl-6 text-sm text-ink/80">
-          <li><strong>Contexto:</strong> línea temporal breve de los eventos relevantes.</li>
-          <li><strong>Actores:</strong> quiénes moldean el tablero (Estado, capital, tecnólogos).</li>
-          <li><strong>Instituciones:</strong> marcos legales, infraestructuras o monopolios de información.</li>
-          <li><strong>Riesgos:</strong> qué puede romperse y cómo afecta a la libertad humana.</li>
-          <li><strong>Oportunidades:</strong> asimetrías de información o capacidad de captura regulatoria.</li>
-          <li><strong>Disciplina:</strong> cómo validar o descartar la hipótesis en los próximos 90 días.</li>
+      <Panel className="space-y-3 border-dashed border-lines/60 bg-overlay/60 p-8">
+        <h3 className="font-display text-2xl text-foreground">Plantilla rápida</h3>
+        <ul className="list-disc space-y-2 pl-6 text-sm text-muted">
+          <li>¿Cuál es la anomalía detectada y quién la está explotando?</li>
+          <li>¿Qué instituciones modulan el espacio de acción?</li>
+          <li>¿Cómo cambia la narrativa dominante y qué señales anticipan el giro?</li>
+          <li>¿Dónde está la liquidez y qué ventanas tácticas se abren?</li>
         </ul>
-      </section>
-    </article>
+      </Panel>
+    </div>
   );
 }

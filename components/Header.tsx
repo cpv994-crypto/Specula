@@ -1,37 +1,49 @@
 import Link from "next/link";
+import { TerminalTabs } from "@/components/ui/TerminalTabs";
 
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/research", label: "Research" },
-  { href: "/resources", label: "Resources" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Terminal" },
+  { href: "/about", label: "Marco" },
+  { href: "/research", label: "Investigación" },
+  { href: "/resources", label: "Recursos" },
+  { href: "/contact", label: "Contacto" },
 ];
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-30 border-b border-gold/30 bg-surface/80 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-navy to-charcoal text-mist shadow-glow font-display text-xl">
-            S
+    <header className="sticky top-0 z-30 border-b border-lines/60 bg-base/80 backdrop-blur">
+      <div className="mx-auto max-w-6xl px-6 py-3">
+        <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-muted">
+          <div className="flex items-center gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-md border border-lines/60 bg-overlay/70 text-sm font-display text-foreground">
+              S
+            </div>
+            <div className="space-y-0.5">
+              <Link href="/" className="flex items-center gap-2 text-foreground">
+                <span className="font-display text-base leading-none">SPECULA</span>
+                <span className="h-[6px] w-[6px] rounded-full bg-accent shadow-glow" aria-hidden />
+              </Link>
+              <p className="text-[10px] tracking-[0.24em] text-muted">Observation Terminal</p>
+            </div>
           </div>
-          <div>
-            <p className="font-display text-lg tracking-tight">Specula</p>
-            <p className="text-xs text-ink/70">Observatorio socio-económico</p>
+          <div className="flex items-center gap-4 text-[10px]">
+            <span className="flex items-center gap-2 text-muted">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan" aria-hidden />
+              Signal stable
+            </span>
+            <span className="flex items-center gap-2 text-muted">
+              <span className="h-1.5 w-1.5 rounded-full border border-lines/60" aria-hidden />
+              Secure link
+            </span>
+            <span className="flex items-center gap-2 text-muted">
+              <span className="h-1.5 w-1.5 rounded-full bg-amber/80" aria-hidden />
+              UTC aligned
+            </span>
           </div>
-        </Link>
-        <nav className="hidden items-center gap-6 text-sm font-medium text-ink/80 sm:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="transition hover:text-navy hover:underline hover:decoration-gold hover:decoration-2"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        </div>
+      </div>
+      <div className="mx-auto max-w-6xl px-6 pb-4">
+        <TerminalTabs items={navItems} />
       </div>
     </header>
   );

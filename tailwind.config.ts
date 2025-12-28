@@ -9,19 +9,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        charcoal: "rgb(var(--color-ink) / <alpha-value>)",
-        mist: "rgb(var(--color-mist) / <alpha-value>)",
-        canvas: "rgb(var(--color-canvas) / <alpha-value>)",
+        base: "rgb(var(--color-base) / <alpha-value>)",
         surface: "rgb(var(--color-surface) / <alpha-value>)",
-        navy: "rgb(var(--color-navy) / <alpha-value>)",
-        gold: "rgb(var(--color-gold) / <alpha-value>)",
+        overlay: "rgb(var(--color-overlay) / <alpha-value>)",
+        lines: "rgb(var(--color-lines) / <alpha-value>)",
+        foreground: "rgb(var(--color-foreground) / <alpha-value>)",
+        muted: "rgb(var(--color-muted) / <alpha-value>)",
+        accent: "rgb(var(--color-accent) / <alpha-value>)",
+        cyan: "rgb(var(--color-cyan) / <alpha-value>)",
+        amber: "rgb(var(--color-amber) / <alpha-value>)",
       },
       fontFamily: {
         display: ["var(--font-playfair)", "serif"],
         sans: ["var(--font-inter)", "sans-serif"],
       },
       boxShadow: {
-        glow: "0 10px 40px rgba(0,0,0,0.15)",
+        glow: "0 20px 50px rgba(0,0,0,0.35)",
+        inner: "inset 0 1px 0 rgba(255,255,255,0.05)",
       },
     },
   },
