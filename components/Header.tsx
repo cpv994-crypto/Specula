@@ -2,10 +2,14 @@ import Link from "next/link";
 
 const navItems = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/research", label: "Research" },
-  { href: "/resources", label: "Resources" },
-  { href: "/contact", label: "Contact" },
+  { href: "/portfolio", label: "Cartera" },
+  { href: "/financial-research", label: "Investigación financiera" },
+  { href: "/signals", label: "Señales" },
+  { href: "/socio-economic", label: "Socio-económico" },
+  { href: "/specula-framework", label: "Marco" },
+  { href: "/newsletter", label: "Newsletter" },
+  { href: "/resources", label: "Recursos" },
+  { href: "/contact", label: "Contacto" },
 ];
 
 export function Header() {
@@ -21,7 +25,7 @@ export function Header() {
             <p className="text-xs text-ink/70">Observatorio socio-económico</p>
           </div>
         </Link>
-        <nav className="hidden items-center gap-6 text-sm font-medium text-ink/80 sm:flex">
+        <nav className="hidden items-center gap-5 text-sm font-medium text-ink/80 lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}

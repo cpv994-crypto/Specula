@@ -1,30 +1,19 @@
 const resources = [
   {
-    title: "Biblioteca de fundamentos",
-    items: [
-      "Psicología de las masas — Gustave Le Bon",
-      "Human Action — Ludwig von Mises",
-      "The Technological Society — Jacques Ellul",
-      "Capitalismo de Estado y estrategia industrial — ensayos seleccionados",
-    ],
+    title: "Economía",
+    items: ["Escuela Austriaca: acción humana y ciclo", "Liquidez global y balanza del Tesoro", "Riesgo sistémico y colateral"],
   },
   {
-    title: "Vigilancia macro y liquidez",
-    items: [
-      "Series de balance de la Reserva Federal (H.4.1)",
-      "Cuenta del Tesoro de EE.UU. (TGA) y RRP",
-      "Spreads de financiación y basis swaps (Bloomberg)",
-      "Indicadores de colateral y repos",
-    ],
+    title: "Filosofía",
+    items: ["Tecnología y poder — Ellul", "Libertad y responsabilidad — Arendt", "Metodología crítica — Polanyi"],
   },
   {
-    title: "Herramientas de campo",
-    items: [
-      "Mapas de poder institucional y flujos de capital",
-      "Cuadros de mando para seguimiento de tesis",
-      "Protocolos de entrevista y trabajo cualitativo",
-      "Plantillas de valoración DCF disciplinadas",
-    ],
+    title: "Tecnología",
+    items: ["Infraestructura digital estratégica", "Modelos fundacionales en sector público", "Automatización logística y defensa"],
+  },
+  {
+    title: "Biología",
+    items: ["Biotecnología y longevidad", "Neurociencia y comportamiento", "Ecosistemas y resiliencia"],
   },
 ];
 
@@ -35,11 +24,12 @@ export default function ResourcesPage() {
         <p className="text-sm uppercase tracking-[0.2em] text-ink/70">Resources</p>
         <h1 className="font-display text-4xl text-charcoal">Recursos y referencias</h1>
         <p className="max-w-2xl text-ink/80">
-          Un inventario curado para sostener la observación paciente y la toma de decisiones estratégicas.
+          Biblioteca curada para sostener la observación paciente. Listados sin enlaces todavía; servirán como guía para futuras
+          integraciones.
         </p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {resources.map((group) => (
           <div key={group.title} className="space-y-3 rounded-2xl border border-gold/25 bg-surface/85 p-6 shadow-sm">
             <h2 className="font-display text-xl text-charcoal">{group.title}</h2>
