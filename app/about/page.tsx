@@ -1,3 +1,6 @@
+import { Panel } from "@/components/ui/Panel";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+
 const researchText = `La idea central de mi metodología de investigación socio-económica parte de una premisa poco habitual: Occidente no es una civilización secular, sino una civilización que ha sustituido su religión tradicional por una nueva forma de religiosidad. Esa religión es el humanismo.
 
 Entiendo el término religión en el sentido amplio propuesto por Gustave Le Bon en Psicología de las masas: no como un sistema necesariamente teísta, sino como un conjunto de creencias compartidas que estructuran la realidad, organizan la vida social, orientan el comportamiento colectivo y dotan de sentido a la experiencia humana. Desde esta definición, el humanismo cumple plenamente una función religiosa.
@@ -67,35 +70,11 @@ los marcos regulatorios nacionales e internacionales.
 
 En un entorno de incertidumbre radical, este tipo de empresas no elimina la incertidumbre, pero convierte parte de ella en ventaja estructural, al operar cerca de los centros de decisión y de asignación de recursos.
 
-Una vez seleccionadas las empresas desde criterios cualitativos e institucionales, aplico el método de valoración por Descuento de Flujos de Caja (DCF) para estimar su valor intrínseco. La valoración no cumple aquí una función predictiva, sino disciplinaria.
+Una vez seleccionadas las empresas desde criterios cualitativos e institucionales, aplico el método de valoración por Descuento de Flujos de Caja (DCF) con particular énfasis en:
 
-El DCF proporciona un ancla cuantitativa que permite:
-
-establecer márgenes de seguridad,
-
-evitar el exceso de narrativa,
-
-imponer reglas claras de entrada y salida.
-
-Compro cuando el descuento frente al valor intrínseco es suficiente y vendo cuando la acción alcanza su valor objetivo, salvo que el rendimiento por dividendo justifique mantenerla como posición estable de largo plazo. La matemática entra, así, después, como herramienta de control, no como mecanismo de adivinación.
-
-De forma complementaria, mantengo una estrategia de cobertura basada en el análisis de la liquidez del sistema financiero, ya que esta determina las grandes mareas del mercado y condiciona tanto las tendencias de fondo como la volatilidad.
-
-Para ello analizo variables como:
-
-el balance de la Reserva Federal,
-
-las facilidades de recompra inversa (RRP),
-
-la cuenta del Tesoro (TGA),
-
-los spreads de financiación,
-
-los basis swaps,
-
-la demanda de colateral.
-
-Este análisis no busca anticipar movimientos tácticos de corto plazo, sino identificar el régimen financiero dominante y ajustar la exposición de la cartera para minimizar la volatilidad innecesaria.
+• Tasas de descuento sensibles a la liquidez y al riesgo institucional.
+• Escenarios dinámicos y ajustados a cambios regulatorios.
+• Márgenes de seguridad disciplinados.
 
 En conjunto, la arquitectura de la cartera refleja el principio austríaco de voluntad + instituciones.
 
@@ -109,26 +88,36 @@ Christopher Pérez Vega`;
 
 export default function AboutPage() {
   return (
-    <div className="space-y-12">
-      <section className="space-y-4">
-        <p className="text-sm uppercase tracking-[0.2em] text-ink/70">About</p>
-        <h1 className="font-display text-4xl text-charcoal">Marco de investigación socio-económica</h1>
-        <div className="prose prose-neutral max-w-none text-justify leading-7 text-ink/80 prose-headings:font-display prose-headings:text-charcoal">
-          {researchText.split("\n\n").map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
-        </div>
-      </section>
+    <div className="space-y-10">
+      <SectionHeader
+        label="Marco"
+        title="Marco de investigación socio-económica"
+        description="Notas de contexto espiritual, institucional y tecnológico que orientan la observación y la toma de decisiones."
+      />
 
-      <section className="space-y-4 rounded-3xl border border-gold/25 bg-surface/85 p-8 shadow-sm">
-        <p className="text-sm uppercase tracking-[0.2em] text-ink/70">Metodología de inversión</p>
-        <h2 className="font-display text-3xl text-charcoal">Voluntad, instituciones y disciplina bajo incertidumbre radical</h2>
-        <div className="prose prose-neutral max-w-none text-justify leading-7 text-ink/80 prose-headings:font-display prose-headings:text-charcoal">
-          {investmentText.split("\n\n").map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
+      <Panel className="border-lines/80 bg-surface/70 p-8">
+        <div className="space-y-4 text-sm leading-relaxed text-muted">
+          {researchText.split("\n\n").map((paragraph, index) => (
+            <p key={index} className="text-muted">
+              {paragraph}
+            </p>
           ))}
         </div>
-      </section>
+      </Panel>
+
+      <Panel className="space-y-4 border-lines/80 bg-overlay/70 p-8">
+        <div className="space-y-2">
+          <p className="text-sm uppercase tracking-[0.2em] text-muted">Metodología de inversión</p>
+          <h2 className="font-display text-2xl text-foreground">Voluntad, instituciones y disciplina bajo incertidumbre radical</h2>
+        </div>
+        <div className="space-y-4 text-sm leading-relaxed text-muted">
+          {investmentText.split("\n\n").map((paragraph, index) => (
+            <p key={index} className="text-muted">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      </Panel>
     </div>
   );
 }

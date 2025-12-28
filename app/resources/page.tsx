@@ -1,3 +1,6 @@
+import { Panel } from "@/components/ui/Panel";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+
 const resources = [
   {
     title: "Biblioteca de fundamentos",
@@ -31,27 +34,25 @@ const resources = [
 export default function ResourcesPage() {
   return (
     <div className="space-y-8">
-      <div className="space-y-3">
-        <p className="text-sm uppercase tracking-[0.2em] text-ink/70">Resources</p>
-        <h1 className="font-display text-4xl text-charcoal">Recursos y referencias</h1>
-        <p className="max-w-2xl text-ink/80">
-          Un inventario curado para sostener la observación paciente y la toma de decisiones estratégicas.
-        </p>
-      </div>
+      <SectionHeader
+        label="Resources"
+        title="Recursos y referencias"
+        description="Un inventario curado para sostener la observación paciente y la toma de decisiones estratégicas."
+      />
 
-      <div className="grid gap-6 sm:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-3">
         {resources.map((group) => (
-          <div key={group.title} className="space-y-3 rounded-2xl border border-gold/25 bg-surface/85 p-6 shadow-sm">
-            <h2 className="font-display text-xl text-charcoal">{group.title}</h2>
-            <ul className="space-y-2 text-sm text-ink/80">
+          <Panel key={group.title} className="space-y-3 border-lines/80 bg-surface/70 p-6">
+            <h2 className="font-display text-xl text-foreground">{group.title}</h2>
+            <ul className="space-y-2 text-sm text-muted">
               {group.items.map((item) => (
                 <li key={item} className="flex gap-2">
-                  <span className="text-charcoal">•</span>
+                  <span className="text-accent">•</span>
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
-          </div>
+          </Panel>
         ))}
       </div>
     </div>
